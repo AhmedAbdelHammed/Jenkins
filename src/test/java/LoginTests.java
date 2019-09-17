@@ -1,7 +1,9 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,7 +30,11 @@ public class LoginTests {
 
     @BeforeClass
     public void setUp(){
-        driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--allow-running-insecure-content"); //Load unsafe scripts
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         driver.get(url);
         wait = new WebDriverWait(driver,waitTimeOut);
     }
