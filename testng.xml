@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="EndToEndSuite" thread-count="1" verbose="1">
+    <test name="HomePageSuite">
+        <classes>
+            <class name="LoginTests" />
+        </classes>
+    </test>
+</suite>
